@@ -1,6 +1,6 @@
 # User Full Name Extractor (Array Mapping)
 
-A lightweight JavaScript utility that processes an array of user objects and extracts their formatted full names into a clean, single-dimensional array.
+A lightweight JavaScript utility that processes an array of user objects and extracts their full names into a single-dimensional array.
 
 ## 🚀 Purpose
 
@@ -9,19 +9,27 @@ When working with API responses, user data often arrives split into separate pro
 ## 💻 Code Example
 
 ```javascript
+// Expected Output:
+// ["Jack Son", "Tom Lee", "Anna Page"]
+
 const users = [
-  { firstName: "Jack", lastName: "Son", age: 30 },
-  { firstName: "Tom", lastName: "lee", age: 20 },
-  { firstName: "Anna", lastName: "page", age: 40 },
+  {
+    firstName: "Jack",
+    lastName: "Son",
+    age: 30,
+  },
+  {
+    firstName: "Tom",
+    lastName: "lee",
+    age: 20,
+  },
+  {
+    firstName: "Anna",
+    lastName: "page",
+    age: 40,
+  },
 ];
 
-// Transform the array of objects into an array of formatted strings
-const result = users.map((user) => {
-  // Ensure the first letter of each name part is capitalized
-  const format = (name) => name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
-  
-  return `${format(user.firstName)} ${format(user.lastName)}`;
-});
+const result = users.map((user) => user.firstName + " " + user.lastName);
 
 console.log(result);
-// Expected Output: ["Jack Son", "Tom Lee", "Anna Page"]
